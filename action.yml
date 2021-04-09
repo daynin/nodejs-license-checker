@@ -1,0 +1,10 @@
+name: 'Node.js License Checker'
+description: 'Check licenses of a project dependencies'
+inputs:
+  allow-only:
+    description: 'List of allowed licences (example: "MIT;BSD;GPL")'
+    required: true
+    default: 'MIT;BSD'
+runs:
+  using: 'node12'
+  main: 'index.js'
