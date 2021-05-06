@@ -1,6 +1,6 @@
 {
   "name": "nodejs-license-checker",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,6 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@vercel/ncc": "^0.28.2",
-    "license-checker": "^25.0.1"
+    "license-checker": "git+https://github.com/packpacka/license-checker.git"
   }
 }
