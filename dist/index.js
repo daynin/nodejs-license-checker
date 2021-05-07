@@ -14603,15 +14603,17 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186)
 const licenseChecker = __nccwpck_require__(5840)
 
+const getMultilineInput = (name) => core.getInput(name).split('\n');
+
 const checkLicenses = (path) => {
   return new Promise((resolve) => {
-    const allowedLicenses = core.getInput('allow-only')
-    const excludePackages = core.getInput('exclude-packages')
+    const allowedLicenses = getMultilineInput('allow-only')
+    const excludePackages = getMultilineInput('exclude-packages')
     try {
       licenseChecker.init({
         start: path,
-        onlyAllow: allowedLicenses,
-        excludePackages: excludePackages
+        onlyAllow: allowedLicenses.join(';'),
+        excludePackages: excludePackages.join(';')
       }, err => {
         resolve(err);
       })
@@ -14622,14 +14624,14 @@ const checkLicenses = (path) => {
 }
 
 try {
-  const paths = (core.getInput('paths') || './').split(';');
+  const paths = getMultilineInput('paths');
 
-  Promise.all(paths.map(checkLicenses)).then((errors) => {
-    if (errors.filter(Boolean).length) {
-      errors.forEach((error, index) => {
-        if (error) {
+  Promise.all(paths.map(checkLicenses)).then((pathsErrors) => {
+    if (pathsErrors.filter(Boolean).length) {
+      pathsErrors.forEach((pathCheckErrors, index) => {
+        if (pathErrors) {
           console.log(`Found errors while check path "${paths[index]}"`);
-          console.log(error);
+          console.log(pathCheckErrors);
         }
       })
       core.setFailed('Licenses check has been failed')

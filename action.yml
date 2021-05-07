@@ -2,15 +2,15 @@ name: 'Node.js License Checker'
 description: 'Check licenses of a project dependencies'
 inputs:
   allow-only:
-    description: 'List of allowed licences separated by semicolon (example: "MIT;BSD;GPL")'
+    description: 'List of allowed licences separated by line-break'
     required: true
     default: 'MIT;BSD'
   exclude-packages:
-    description: 'List of excluded packages with version separated by semicolon (example: "resct@17.0.2;react-router@5.2.0")'
+    description: 'List of excluded packages with version (example: "resct@17.0.2") separated by line-break'
     required: false
     default: ''
   paths:
-    description: 'List of sub-packages in monorepo (including root)'
+    description: 'List of sub-packages in monorepo (including root) separated by line-break'
     required: false
     default: './'
 runs:
