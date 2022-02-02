@@ -24,7 +24,8 @@ jobs:
       # E.g. GPL license is allowed in devDependencies
       - run: yarn --frozen-lockfile --production
 
-      - uses: daynin/nodejs-license-checker@v0
+      # Use main branch or a specific version (e.g. @v0.2.0)
+      - uses: daynin/nodejs-license-checker@main
         with:
           exclude-private-packages: true
           allow-only:  |
