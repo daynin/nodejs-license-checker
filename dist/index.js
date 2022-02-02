@@ -14613,7 +14613,8 @@ const checkLicenses = (path) => {
       licenseChecker.init({
         start: path,
         onlyAllow: allowedLicenses.join(';'),
-        excludePackages: excludePackages.join(';')
+        excludePackages: excludePackages.join(';'),
+        excludePrivatePackages: Boolean(core.getInput('exclude-private-packages'))
       }, err => {
         resolve(err);
       })
