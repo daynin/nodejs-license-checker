@@ -9,6 +9,9 @@ inputs:
     description: 'List of excluded packages with version (example: "resct@17.0.2") separated by line-break'
     required: false
     default: ''
+  exclude-private-packages:
+    description: 'Do not include any package marked as private'
+    required: false
   paths:
     description: 'List of sub-packages in monorepo (including root) separated by line-break'
     required: false
