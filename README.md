@@ -9,8 +9,12 @@ name: Check Licenses
 on:
   push:
     branches: [main]
+    # Run this action only if dependencies has changed
+    paths:
+      - 'yarn.lock'
   pull_request:
-
+    paths:
+      - 'yarn.lock'
 jobs:
   licenses:
     name: Check licenses
