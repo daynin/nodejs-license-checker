@@ -14609,10 +14609,12 @@ const checkLicenses = (path) => {
   return new Promise((resolve) => {
     const allowedLicenses = getMultilineInput('allow-only')
     const excludePackages = getMultilineInput('exclude-packages')
+    const failOnLicenses = getMultilineInput('fail-on')
     try {
       licenseChecker.init({
         start: path,
-        onlyAllow: allowedLicenses.join(';'),
+        ...(allowedLicenses && { onlyAllow: allowedLicenses.join(';') }),
+        ...(failOnLicenses && { failOn: failOnLicenses.join(';') }),
         excludePackages: excludePackages.join(';'),
         excludePrivatePackages: Boolean(core.getInput('exclude-private-packages'))
       }, err => {

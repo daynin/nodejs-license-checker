@@ -5,6 +5,10 @@ inputs:
     description: 'List of allowed licences separated by line-break'
     required: true
     default: 'MIT;BSD'
+  fail-on:
+    description: 'List of failed licences separated by line-break'
+    required: true
+    default: ''
   exclude-packages:
     description: 'List of excluded packages with version (example: "resct@17.0.2") separated by line-break'
     required: false
