@@ -8,7 +8,7 @@ inputs:
   fail-on:
     description: 'List of failed licences separated by line-break'
     required: true
-    default: ''
+    default: 'GPL;AGPL;JRL;AFPL'
   exclude-packages:
     description: 'List of excluded packages with version (example: "resct@17.0.2") separated by line-break'
     required: false
